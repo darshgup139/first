@@ -11,17 +11,17 @@
 		<tr>
 			<th>Create User</th>
 			<td><a href="/AddTPC/InsertUser">Click Here To
-					Insert User</a></td>
+					Assign TPC</a></td>
 		</tr>
 		<tr>
 			<th>View User</th>
 			<td><a href="/AddTPC/ViewUsers">Click Here
-					To View User</a></td>
+					To View TPC</a></td>
 		</tr>
 		<tr>
 			<th>Delete User</th>
 			<td><a href="/AddTPC/DeleteUser">Click Here To
-					Delete User</a></td>
+					Remove TPC</a></td>
 		</tr>
 		
 	</table>

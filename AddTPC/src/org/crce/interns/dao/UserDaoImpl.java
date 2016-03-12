@@ -43,9 +43,10 @@ public class UserDaoImpl implements UserDao{
   	}	
 	
 	@Override
-	public void deleteUser(String userName) {
+	public void deleteUser(User user) {
 		// TODO Auto-generated method stub
-		entityManager.createQuery("delete from User u where u.userName = :n").setParameter("n", userName).executeUpdate();
+		entityManager.merge(user);
+		//entityManager.createQuery("delete from User u where u.userName = :n").setParameter("n", userName).executeUpdate();
 	}
 
 }

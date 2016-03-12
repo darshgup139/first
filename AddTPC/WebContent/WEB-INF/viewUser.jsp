@@ -25,10 +25,14 @@
 		</table>
 	</c:if>
 	<tr>
-			<td><a href="/AddTPC/InsertUser">Assign TPC</a></td>
-		</tr>
-	<a href="/AddTPC/">
-					Home</a>
-	
+		<td><a href="/AddTPC/InsertUser">Assign TPC</a></td>
+	</tr>
+	<tr>
+		<td><a href="/AddTPC/"> Home</a></td>
+	</tr>
+	<tr>
+		<td><a href="/AddTPC/DeleteUser">Remove TPC</a></td>
+	</tr>
+
 </body>
 </html>

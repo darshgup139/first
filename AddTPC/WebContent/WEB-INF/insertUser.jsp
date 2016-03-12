@@ -43,11 +43,11 @@ td {
 							value="${user.userName}"></td>
 					</tr>
 					<tr>
-						<td>TPC :</td>
+						<th>TPC Type:</th>
 						<td><%-- <form:radiobuttons path="userRole"
 								items="${map.TPCList}" /> --%>
-							Student <input type="radio" name="userRole" value="Student">
-							Faculty <input type="radio" name="userRole" value="Faculty">		
+							Student-TPC<input type="radio" name="userRole" value="Student">
+							Faculty-TPC<input type="radio" name="userRole" value="Faculty">		
 						</td>
 					</tr>
 					<tr>

@@ -31,14 +31,14 @@ td {
 </head>
 <body>
 	<center>
-		<br /> <br /> <br /> <b>Placement System | Delete TPC </b> <br />
+		<br /> <br /> <br /> <b>Placement System | Remove TPC </b> <br />
 		<br />
 		<div>
 			<form action="/AddTPC/SubmitDeleteUser"
 				method="post">
 				<table border="1">
 					<tr>
-						<th>UserName</th>
+						<th>Username of the TPC</th>
 						<td><input type="text" name="userName"
 							value="${user.userName}"></td>
 					</tr>

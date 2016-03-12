@@ -56,7 +56,7 @@ public class UserController {
 	//public ModelAndView deleteUser(@ModelAttribute("command")UserBean userBean) {
 		public ModelAndView deleteUser(@ModelAttribute("user")UserBean userBean) {
 			
-		userService.deleteUser(userBean.getUserName());
+		userService.deleteUser(userBean);
 		return new ModelAndView("redirect:/ViewUsers");
 	}
 }
