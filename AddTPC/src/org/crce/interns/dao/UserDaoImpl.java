@@ -33,8 +33,9 @@ public class UserDaoImpl implements UserDao{
 	}
 	
 	@Override
-	public User getUser(String username) {
+	public User getUser(User checkUser) {
 		// TODO Auto-generated method stub
+		String username=checkUser.getUsername();
 		User user = (User)entityManager.createQuery("select u from User u where where u.userName = :n").setParameter("n", username), User.class);
 		return user;
 	}	
