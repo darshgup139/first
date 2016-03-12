@@ -46,8 +46,8 @@ td {
 						<td>TPC :</td>
 						<td><%-- <form:radiobuttons path="userRole"
 								items="${map.TPCList}" /> --%>
-							Student <input type="radio" name="userRole" value="Student-TPC">
-							Faculty <input type="radio" name="userRole" value="Faculty-TPC">		
+							Student <input type="radio" name="userRole" value="Student">
+							Faculty <input type="radio" name="userRole" value="Faculty">		
 						</td>
 					</tr>
 					<tr>
