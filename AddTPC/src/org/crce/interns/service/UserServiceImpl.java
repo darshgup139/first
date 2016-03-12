@@ -1,5 +1,4 @@
 package org.crce.interns.service;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,10 +17,8 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void insertUser(UserBean userBean) {
 		// TODO Auto-generated method stub
-	User user = new User();
+		User user = new User();
 		User checkUser = new User();
-		
-		
 		BeanUtils.copyProperties(userBean, user);
 		checkUser.setUserName(userBean.getUserName());
 		

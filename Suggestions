@@ -1,0 +1,29 @@
+Few changes u need to do for integration:
+
+1.change userName to username.Do this using "Refactor" in Eclipse
+
+2.solve issue by adding this snippet:
+
+// in DAO
+
+@Override
+	public void insertUser(UserBean userBean) {
+		// TODO Auto-generated method stub
+		User user = new User();
+		User checkUser = new User();
+		
+		
+		BeanUtils.copyProperties(userBean, user);
+		checkUser.setUsername(userBean.getUsername());
+		
+		checkUser=userDao.getUser(checkUser);
+		
+		if(checkUser.getRole != role of student ){
+		  //do something
+		}
+		else{
+		  //do something else
+		}
+		//user.setUserDob(new java.sql.Date(userBean.getUserDob().getTime()));
+		//userDao.insertUser(user);
+	}
