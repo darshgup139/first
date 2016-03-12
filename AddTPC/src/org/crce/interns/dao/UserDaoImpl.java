@@ -18,12 +18,8 @@ public class UserDaoImpl implements UserDao{
 	@Override
 	public void insertUser(User user) {
 		// TODO Auto-generated method stub
-		//entityManager.persist(user);
-	//	List l=(List) entityManager.createQuery("");
-		// from the user.username check if that entry is presetn in db
-		// check the role of selected tuple
-		// now if the role == studetn then new_role == studenttpc
-		// else faculty tpc
+		//user.setUserRole("Student");
+		//System.out.println(user.getUserRole());
 		entityManager.merge(user);
 	}
 	@Override
@@ -32,13 +28,19 @@ public class UserDaoImpl implements UserDao{
 		return entityManager.createQuery("select u from User u", User.class).getResultList();
 	}
 	
-	@Override
+/*	@Override
 	public User getUser(User checkUser) {
 		// TODO Auto-generated method stub
-		String username=checkUser.getUsername();
-		User user = (User)entityManager.createQuery("select u from User u where where u.userName = :n").setParameter("n", username), User.class);
+		User user =entityManager.createQuery("select u from User u where where u.userName = :n").setParameter("n", username), User.class);
 		return user;
 	}	
+	*/
+	public User getUser(User checkUser) {
+  		// TODO Auto-generated method stub
+ 		String userName=checkUser.getUserName();
+  		User user = (User)entityManager.createQuery("select u from User u where u.userName = :n").setParameter("n", userName).getSingleResult();
+ 		return user;
+  	}	
 	
 	@Override
 	public void deleteUser(String userName) {
