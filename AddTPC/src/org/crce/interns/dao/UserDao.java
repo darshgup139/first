@@ -9,4 +9,8 @@ public interface UserDao {
 
 	public List<User> viewUsers();
 	public void deleteUser(String userName);
+
+	public User getUser(User checkUser);
+
+	//User getUser(String userName);
 }

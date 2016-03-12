@@ -60,45 +60,7 @@ public class UserController {
 		return new ModelAndView("redirect:/ViewUsers");
 	}
 }
+		
 	
-	/*@RequestMapping("/EditUser")
-	public ModelAndView editUser(@ModelAttribute("command")UserBean userBean) {
-		Map<String, Object> modelMap = new HashMap<String, Object>();
-		modelMap.put("user", userService.getUser(userBean.getUserName()));
-		return new ModelAndView("insertUser", modelMap);
-	}*/
 	
-	/*
-	@RequestMapping("/")
-	public ModelAndView welcome() {
-		return new ModelAndView("index");
-	}
-	@RequestMapping("/viewUser")
-	public ModelAndView viewUsers() {
-		Map<String, Object> modelMap = new HashMap<String, Object>();
-		modelMap.put("users", userService.viewUsers());
-		return new ModelAndView("viewUser", modelMap);
-	}
-	
-	@RequestMapping("/insertUser")
-	public ModelAndView createUserWelcome() {
-		List<String> TPCList = new ArrayList<String>();
-		TPCList.add("Student");
-		TPCList.add("Faculty");
-
-		Map<String, List> map = new HashMap<String, List>();
-		map.put("TPCList", TPCList);
-		return new ModelAndView("insertUser", "map", map);
-	}
-	
-	@RequestMapping(value = "/SubmitInsertUser", method = RequestMethod.POST)
-	public ModelAndView createUser(@ModelAttribute("user")UserBean userBean, BindingResult bindingResult) {
-		if (bindingResult.hasErrors()) {
-			System.out.println("Binding Errors are present...");
-			return new ModelAndView("insertUser");
-		}
-		userService.insertUser(userBean);
-		return new ModelAndView("redirect:/viewUsers");
-	}
-*/
 	

@@ -31,7 +31,7 @@ td {
 </head>
 <body>
 	<center>
-		<br /> <br /> <br /> <b>Being Java Guys | Registration Form </b> <br />
+		<br /> <br /> <br /> <b>Placement System | Delete TPC </b> <br />
 		<br />
 		<div>
 			<form action="/AddTPC/SubmitDeleteUser"

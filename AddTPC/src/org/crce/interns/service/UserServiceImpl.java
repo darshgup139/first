@@ -1,4 +1,5 @@
 package org.crce.interns.service;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,17 +11,70 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
 	@Autowired
 	private UserDao userDao;
-	
+
 	@Override
 	public void insertUser(UserBean userBean) {
 		// TODO Auto-generated method stub
-		User user = new User();
+	User user = new User();
+		User checkUser = new User();
+		
+		
 		BeanUtils.copyProperties(userBean, user);
-		//user.setUserDob(new java.sql.Date(userBean.getUserDob().getTime()));
-		userDao.insertUser(user);
+		checkUser.setUserName(userBean.getUserName());
+		
+		checkUser=userDao.getUser(checkUser);
+		
+		
+		System.out.println(userBean.getUserRole());
+		
+		
+		if(checkUser==null)
+		{
+			System.out.println("Error hello");
+		}
+		
+		//System.out.println(checkUser.getUserRole());
+		String st;
+		st=userBean.getUserRole();
+		if(st.equalsIgnoreCase("Student"))
+		{
+			
+		if(checkUser.getUserRole().equalsIgnoreCase(userBean.getUserRole())){
+		  //do something
+			//System.out.println("Hello In student");
+		  checkUser.setUserRole("Student-TPC");
+		//System.out.println(checkUser.getUserRole());
+		userDao.insertUser(checkUser);
+		}
+		else
+		{
+			System.out.println("error:Invalid Input Student");
+		}
+		}
+		
+		else if(st.equalsIgnoreCase("Faculty")){
+			System.out.println(userBean.getUserRole());
+			if(checkUser.getUserRole().equalsIgnoreCase(userBean.getUserRole())){
+				
+			  //do something
+			//System.out.println("Hello In faculty");
+		//	System.out.println(checkUser.getUserRole());
+			  checkUser.setUserRole("Faculty-TPC");
+		//	  System.out.println(checkUser.getUserRole());
+			  userDao.insertUser(checkUser);
+			}
+			else{
+				System.out.println("error:Invalid Input Faculty");
+			}
+		}
+		else
+		{
+			System.out.println("error");
+		}
+
 	}
 
 	@Override
@@ -44,8 +98,7 @@ public class UserServiceImpl implements UserService{
 	public void deleteUser(String userName) {
 		// TODO Auto-generated method stub
 		userDao.deleteUser(userName);
-		
+
 	}
 
-	
 }
