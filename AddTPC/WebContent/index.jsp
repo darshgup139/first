@@ -9,21 +9,18 @@
 <body>
 	<table border="1">
 		<tr>
-			<th>Create User</th>
-			<td><a href="/AddTPC/InsertUser">Click Here To
-					Assign TPC</a></td>
+			<th>Assign TPC</th>
+			<td><a href="/AddTPC/InsertUser">Click Here To Assign TPC</a></td>
 		</tr>
 		<tr>
-			<th>View User</th>
-			<td><a href="/AddTPC/ViewUsers">Click Here
-					To View TPC</a></td>
+			<th>View Users</th>
+			<td><a href="/AddTPC/ViewUsers">Click Here To View TPC</a></td>
 		</tr>
 		<tr>
-			<th>Delete User</th>
-			<td><a href="/AddTPC/DeleteUser">Click Here To
-					Remove TPC</a></td>
+			<th>Remove TPC</th>
+			<td><a href="/AddTPC/DeleteUser">Click Here To Remove TPC</a></td>
 		</tr>
-		
+
 	</table>
 </body>
 </html>

@@ -9,12 +9,14 @@
 	http://www.springframework.org/schema/context/spring-context-3.0.xsd
 	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
 	http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd">
-	 
+
+	<context:property-placeholder location="classpath:resources/database.properties" />
 	<context:component-scan base-package="org.crce.interns.beans" />
 	<context:component-scan base-package="org.crce.interns.controller" />
 	<context:component-scan base-package="org.crce.interns.dao" />
 	<context:component-scan base-package="org.crce.interns.model" />
 	<context:component-scan base-package="org.crce.interns.service" />
+	<context:component-scan base-package="org.crce.interns.validator" />
 
 	<mvc:annotation-driven />
 
@@ -28,29 +30,41 @@
 		</property>
 	</bean>
 
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="${database.driver}" />
+		<property name="url" value="${database.url}" />
+		<property name="username" value="${database.user}" />
+		<property name="password" value="${database.password}" />
+	</bean>
+
 	<bean id="entityManagerFactoryBean"
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 
 		<property name="packagesToScan" value="org.crce.interns.model" />
-
+		<!-- <property name="annotatedClasses"> <list> <value>org.crce.interns.model.User</value> 
+			</list> </property> -->
 		<property name="jpaVendorAdapter">
 			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
 		</property>
 		<property name="jpaProperties">
 			<props>
-				<prop key="hibernate.hbm2ddl.auto">validate</prop>
-				<prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
+				<prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+				<prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
 			</props>
 		</property>
 	</bean>
 
-	<bean id="dataSource"
-		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://localhost:3306/interns" />
-		<property name="username" value="root" />
-		<property name="password" value="root" />
+
+	<bean id="addTPCValidator" class="org.crce.interns.validator.AddTPCValidator" />
+	<bean id="rvmTPCValidator" class="org.crce.interns.validator.RemoveTPCValidator" />
+
+	<bean id="messageSource"
+		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<property name="basename" value="/WEB-INF/message_en" />
+		<property name="cacheSeconds" value="1" />
 	</bean>
 
 	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
@@ -60,3 +74,8 @@
 	<tx:annotation-driven />
 
 </beans>
+
+<!-- <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> 
+	<property name="driverClassName" value="com.mysql.jdbc.Driver" /> <property 
+	name="url" value="jdbc:mysql://localhost:3306/interns" /> <property name="username" 
+	value="root" /> <property name="password" value="root" /> </bean> -->

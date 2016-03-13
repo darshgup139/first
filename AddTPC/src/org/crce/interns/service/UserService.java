@@ -1,4 +1,5 @@
 package org.crce.interns.service;
+
 import java.util.List;
 
 import org.crce.interns.beans.UserBean;
@@ -11,5 +12,5 @@ public interface UserService {
 	public List<UserBean> viewUsers();
 
 	public void deleteUser(UserBean userBean);
-	
+
 }

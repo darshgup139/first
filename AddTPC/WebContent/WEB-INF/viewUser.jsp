@@ -28,7 +28,7 @@
 		<td><a href="/AddTPC/InsertUser">Assign TPC</a></td>
 	</tr>
 	<tr>
-		<td><a href="/AddTPC/"> Home</a></td>
+		<td><a href="/AddTPC/">Home</a></td>
 	</tr>
 	<tr>
 		<td><a href="/AddTPC/DeleteUser">Remove TPC</a></td>
