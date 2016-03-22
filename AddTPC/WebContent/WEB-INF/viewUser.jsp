@@ -25,7 +25,7 @@
 		</table>
 	</c:if>
 	<tr>
-		<td><a href="/AddTPC/InsertUser">Assign TPC</a></td>
+		<td><a href="/AddTPC/InsertUser">Assign TPC and Tasks</a></td>
 	</tr>
 	<tr>
 		<td><a href="/AddTPC/">Home</a></td>

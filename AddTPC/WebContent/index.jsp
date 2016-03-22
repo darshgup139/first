@@ -9,12 +9,16 @@
 <body>
 	<table border="1">
 		<tr>
-			<th>Assign TPC</th>
-			<td><a href="/AddTPC/InsertUser">Click Here To Assign TPC</a></td>
+			<th>Assign TPC and Task</th>
+			<td><a href="/AddTPC/InsertUser">Click Here To Assign TPC and Task</a></td>
 		</tr>
 		<tr>
 			<th>View Users</th>
 			<td><a href="/AddTPC/ViewUsers">Click Here To View TPC</a></td>
+		</tr>
+		<tr>
+			<th>View Users</th>
+			<td><a href="/AddTPC/ViewFacultyTasks">Click Here To View Faculty TPC Tasks</a></td>
 		</tr>
 		<tr>
 			<th>Remove TPC</th>

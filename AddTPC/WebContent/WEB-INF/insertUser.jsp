@@ -13,7 +13,26 @@
 	font-style: italic;
 	font-weight: bold;
 }
+
+/* .box {
+	display: none;
+} */
 </style>
+<!-- <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+<script type="text/javascript">
+		$(document).ready(function(){
+			$('input[type="radio"]').click(function(){
+				if($(this).attr("value")=="Faculty"){
+					$(".box").not(".Faculty").hide('fast');
+					$(".Faculty").show('slow');
+				}
+				if($(this).attr("value")=="Student"){
+					$(".box").not(".Student").hide('fast');
+					$(".Student").show('slow');
+				}
+			});
+		});
+		</script> -->
 </head>
 <body>
 	<h2>Assign TPC</h2>
@@ -31,10 +50,23 @@
 					Faculty-TPC</td>
 				<td><form:errors path="userRole" cssClass="error" /></td>
 			</tr>
+			<%-- <!-- <div id="login-error" class="control-group"> -->
+			<div class="Faculty box">
+				<form:input path="userName" /><br>
+				</br><form:input path="userWork"/>
+			</div>
+
+			<div class="Student box">
+				<form:input type="text"  path="userName"/><br>
+			</div> --%>
 			<tr>
 				<td colspan="2"><input type="submit" value="Submit" /></td>
 			</tr>
+
+
 		</table>
 	</form:form>
+	
+	
 </body>
 </html>
