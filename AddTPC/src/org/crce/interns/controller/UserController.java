@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.crce.interns.beans.FacultyUserBean;
 import org.crce.interns.beans.UserBean;
 import org.crce.interns.model.User;
 import org.crce.interns.service.UserService;
@@ -34,6 +35,8 @@ public class UserController {
 		return new ModelAndView("index");
 	}
 
+	
+	
 	@RequestMapping("/ViewUsers")
 	public ModelAndView viewUsers() {
 		Map<String, Object> modelMap = new HashMap<String, Object>();
@@ -41,10 +44,26 @@ public class UserController {
 		return new ModelAndView("viewUser", modelMap);
 	}
 
+	@RequestMapping("/ViewFacultyTasks")
+	public ModelAndView viewFacultyTasks() {
+		Map<String, Object> modelMap = new HashMap<String, Object>();
+		modelMap.put("fusers", userService.viewFacultyTasks());
+		return new ModelAndView("viewFacultyTasks", modelMap);
+	}
+	
+	
+	
+	
 	@RequestMapping("/InsertUser")
 	public ModelAndView createUserWelcome(@ModelAttribute("command") UserBean userBean, BindingResult result) {
 		return new ModelAndView("insertUser");
 	}
+	
+	@RequestMapping("/InsertWork")
+	public ModelAndView createUserWork(@ModelAttribute("command") FacultyUserBean userBean, BindingResult result) {
+		return new ModelAndView("insertWork");
+	}
+	
 
 	@RequestMapping("/DeleteUser")
 	public ModelAndView deleteUserWelcome(@ModelAttribute("command") UserBean userBean, BindingResult result) {
@@ -60,9 +79,39 @@ public class UserController {
 		}
 
 		userService.insertUser(userBean);
+		FacultyUserBean fuserBean= new FacultyUserBean();
+		fuserBean.setUserName(userBean.getUserName());
+	/*	System.out.println(userBean.getUserName()+" in Contoller");
+		System.out.println(userBean.getUserRole()+" in Contoller");*/
+		if(userBean.getUserRole().equalsIgnoreCase("Faculty"))
+		{
+			System.out.println("\n\n\n"+fuserBean.getUserName()+" in Contoller");
+			//userService.insertWork(fuserBean);
+			return new ModelAndView("redirect:/InsertWork");
+		}
+		else
 		return new ModelAndView("redirect:/ViewUsers");
 	}
-
+	
+	
+	
+	
+	@RequestMapping(value = "/SubmitInsertWork", method = RequestMethod.POST)
+	public ModelAndView createWork(@ModelAttribute("command") FacultyUserBean fuserBean, BindingResult bindingResult) {
+		/*validator.validate(fuserBean, bindingResult);*/
+		if (bindingResult.hasErrors()) {
+			System.out.println("Binding Errors are present...");
+			return new ModelAndView("insertWork");
+		}
+		System.out.println("Username in Controller :"+fuserBean.getUserName());
+		userService.insertWork(fuserBean);
+		/*System.out.println(fuserBean.getUserName()+" in Contoller");
+		System.out.println(fuserBean.getUserWork()+" in Contoller");*/
+		
+		return new ModelAndView("redirect:/ViewFacultyTasks");
+	}
+		
+	
 	@RequestMapping(name = "/SubmitDeleteUser", method = RequestMethod.POST)
 	public ModelAndView deleteUser(@ModelAttribute("command") UserBean userBean, BindingResult bindingResult) {
 		rvmvalidator.validate(userBean, bindingResult);

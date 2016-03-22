@@ -3,8 +3,10 @@ package org.crce.interns.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.crce.interns.beans.FacultyUserBean;
 import org.crce.interns.beans.UserBean;
 import org.crce.interns.dao.UserDao;
+import org.crce.interns.model.FacultyUser;
 import org.crce.interns.model.User;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,14 +63,27 @@ public class UserServiceImpl implements UserService {
 		}
 
 	}
-
+	
 	@Override
-	public List<UserBean> viewUsers() {
+	public void insertWork(FacultyUserBean fuserBean) {
+		FacultyUser fuser = new FacultyUser();
+		
+		fuser.setUserName(fuserBean.getUserName());
+		
+		fuser = userDao.getFacultyUser(fuser);
+		fuser.setUserWork(fuserBean.getUserWork());
+		System.out.println("Username in Service IMPL :"+fuser.getUserName());
+		System.out.println("UserWork in Service IMPL :"+fuser.getUserWork());
+		System.out.println("UserWorkk in Service with Bean: "+fuserBean.getUserWork());
+		if (fuser == null) {
+			System.out.println("Error:No User Defined" + "\n");
+		}
+		//System.out.println("Username in Service IMPL :"+fuser.getUserName());
+		userDao.insertWork(fuser);
 		// TODO Auto-generated method stub
-		List<User> userList = userDao.viewUsers();
-		return convertToBean(userList);
 	}
-
+	
+	
 	public List<UserBean> convertToBean(List<User> userList) {
 		List<UserBean> userBeanList = new ArrayList<UserBean>();
 		for (User user : userList) {
@@ -78,6 +93,17 @@ public class UserServiceImpl implements UserService {
 		}
 		return userBeanList;
 	}
+	
+	public List<FacultyUserBean> convertToBeanFaculty(List<FacultyUser> userList) {
+		List<FacultyUserBean> userBeanList = new ArrayList<FacultyUserBean>();
+		for (FacultyUser fuser : userList) {
+			FacultyUserBean fuserBean = new FacultyUserBean();
+			BeanUtils.copyProperties(fuser, fuserBean);
+			userBeanList.add(fuserBean);
+		}
+		return userBeanList;
+	}
+
 
 	@Override
 	public void deleteUser(UserBean userBean) {
@@ -109,5 +135,21 @@ public class UserServiceImpl implements UserService {
 			System.out.println("Error : No Such User Exists");
 		}
 	}
+	
+	@Override
+	public List<UserBean> viewUsers() {
+		// TODO Auto-generated method stub
+		List<User> userList = userDao.viewUsers();
+		return convertToBean(userList);
+	}
+
+	@Override
+	public List<FacultyUserBean> viewFacultyTasks() {
+		// TODO Auto-generated method stub
+		List<FacultyUser> userList = userDao.viewFacultyTasks();
+		return convertToBeanFaculty(userList);
+	}
+
+	
 
 }
