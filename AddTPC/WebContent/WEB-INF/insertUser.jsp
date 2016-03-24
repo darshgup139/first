@@ -13,11 +13,13 @@
 	font-style: italic;
 	font-weight: bold;
 }
-
-/* .box {
-	display: none;
-} */
 </style>
+
+
+
+<!-- /* .box {
+	display: none;
+} */ -->
 <!-- <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
 <script type="text/javascript">
 		$(document).ready(function(){
@@ -39,16 +41,16 @@
 	<form:form method="POST" action="/AddTPC/SubmitInsertUser">
 		<table>
 			<tr>
-				<td><form:label path="userName">User name:</form:label></td>
-				<td><form:input path="userName" /></td>
-				<td><form:errors path="userName" cssClass="error" /></td>
+				<td><form:label path="username">User name:</form:label></td>
+				<td><form:input path="username" /></td>
+				<td><form:errors path="username" cssClass="error" /></td>
 			</tr>
 			<tr>
-				<td><form:label path="userRole">User Role:</form:label></td>
-				<td><form:radiobutton path="userRole" value="Student" />
-					Student-TPC <form:radiobutton path="userRole" value="Faculty" />
+				<td><form:label path="role_id">User Role:</form:label></td>
+				<td><form:radiobutton path="role_id" value="1" />
+					Student-TPC <form:radiobutton path="role_id" value="2" />
 					Faculty-TPC</td>
-				<td><form:errors path="userRole" cssClass="error" /></td>
+				<td><form:errors path="role_id" cssClass="error" /></td>
 			</tr>
 			<%-- <!-- <div id="login-error" class="control-group"> -->
 			<div class="Faculty box">

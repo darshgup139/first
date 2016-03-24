@@ -3,6 +3,7 @@ package org.crce.interns.dao;
 import java.util.List;
 
 import org.crce.interns.model.FacultyUser;
+import org.crce.interns.model.RMUser;
 import org.crce.interns.model.User;
 
 public interface UserDao {
@@ -19,5 +20,7 @@ public interface UserDao {
 	public FacultyUser getFacultyUser(FacultyUser fuser);
 
 	public List<FacultyUser> viewFacultyTasks();
+	
+	public RMUser getUserRole(String role_id);
 
 }

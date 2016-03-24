@@ -80,12 +80,12 @@ public class UserController {
 
 		userService.insertUser(userBean);
 		FacultyUserBean fuserBean= new FacultyUserBean();
-		fuserBean.setUserName(userBean.getUserName());
+		fuserBean.setUsername(userBean.getUsername());
 	/*	System.out.println(userBean.getUserName()+" in Contoller");
 		System.out.println(userBean.getUserRole()+" in Contoller");*/
-		if(userBean.getUserRole().equalsIgnoreCase("Faculty"))
+		if(userBean.getRole_id().equalsIgnoreCase("2"))
 		{
-			System.out.println("\n\n\n"+fuserBean.getUserName()+" in Contoller");
+			System.out.println("\n\n\n"+fuserBean.getUsername()+" in Contoller");
 			//userService.insertWork(fuserBean);
 			return new ModelAndView("redirect:/InsertWork");
 		}
@@ -103,7 +103,7 @@ public class UserController {
 			System.out.println("Binding Errors are present...");
 			return new ModelAndView("insertWork");
 		}
-		System.out.println("Username in Controller :"+fuserBean.getUserName());
+		System.out.println("Username in Controller :"+fuserBean.getUsername());
 		userService.insertWork(fuserBean);
 		/*System.out.println(fuserBean.getUserName()+" in Contoller");
 		System.out.println(fuserBean.getUserWork()+" in Contoller");*/

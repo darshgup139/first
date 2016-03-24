@@ -18,8 +18,8 @@
 			</tr>
 			<c:forEach items="${users}" var="user">
 				<tr>
-					<td><c:out value="${user.userName}" /></td>
-					<td><c:out value="${user.userRole}" /></td>
+					<td><c:out value="${user.username}" /></td>
+					<td><c:out value="${user.role_id}" /></td>
 				</tr>
 			</c:forEach>
 		</table>

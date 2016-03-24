@@ -20,9 +20,9 @@
 	<form:form method="POST" action="/AddTPC/SubmitDeleteUser">
 		<table>
 			<tr>
-				<td><form:label path="userName">User name:</form:label></td>
-				<td><form:input path="userName" /></td>
-				<td><form:errors path="userName" cssClass="error" /></td>
+				<td><form:label path="username">User name:</form:label></td>
+				<td><form:input path="username" /></td>
+				<td><form:errors path="username" cssClass="error" /></td>
 			</tr>
 			<tr>
 				<td colspan="2"><input type="submit" value="Submit" /></td>

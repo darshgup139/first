@@ -3,23 +3,20 @@ package org.crce.interns.beans;
 import java.io.Serializable;
 
 public class UserBean implements Serializable {
-	private String userName;
-	private String userRole;
-
-	public String getUserRole() {
-		return userRole;
+	private String username;
+	private String role_id;
+	
+	public String getUsername() {
+		return username;
 	}
-
-	public void setUserRole(String userRole) {
-		this.userRole = userRole;
+	public void setUsername(String username) {
+		this.username = username;
 	}
-
-	public String getUserName() {
-		return userName;
+	public String getRole_id() {
+		return role_id;
 	}
-
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setRole_id(String role_id) {
+		this.role_id = role_id;
 	}
-
+	
 }

@@ -8,32 +8,30 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "sample.user_table")
+//@Table(name = "user_schema.userdetails")
+@Table(name = "sample.userdetails")
 public class User implements Serializable {
 
 	@Id
-	@Column(name = "user_name", nullable = false)
+	@Column(name = "username", nullable = false)
 	@NotNull
-	private String userName;
+	private String username;
 
-	@Column(name = "user_role", nullable = false)
+	@Column(name = "role_id")
 	@NotNull
-	private String userRole;
+	private String role_id;
 
-	public String getUserRole() {
-		return userRole;
+	public String getUsername() {
+		return username;
 	}
-
-	public void setUserRole(String userRole) {
-		this.userRole = userRole;
+	public void setUsername(String username) {
+		this.username = username;
 	}
-
-	public String getUserName() {
-		return userName;
+	public String getRole_id() {
+		return role_id;
 	}
-
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setRole_id(String role_id) {
+		this.role_id = role_id;
 	}
-
+	
 }
