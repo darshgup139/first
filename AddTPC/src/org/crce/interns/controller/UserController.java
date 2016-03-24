@@ -36,7 +36,6 @@ public class UserController {
 	}
 
 	
-	
 	@RequestMapping("/ViewUsers")
 	public ModelAndView viewUsers() {
 		Map<String, Object> modelMap = new HashMap<String, Object>();
