@@ -139,12 +139,12 @@ public class UserServiceImpl implements UserService {
 
 		if (checkUser.getRole_id().equalsIgnoreCase("3")) {
 			System.out.println("Before update Student Role : " + checkUser.getRole_id() + "\n");
-//			checkUser.setRole_id("1");//1 is Student & 3 is Student tpc
+			checkUser.setRole_id("1");//1 is Student & 3 is Student tpc
 			System.out.println("After update Student Role : " + checkUser.getRole_id() + "\n");
 			userDao.deleteUser(checkUser);
 		} else if (checkUser.getRole_id().equalsIgnoreCase("4")) {
 			System.out.println("Before update Faculty Role : " + checkUser.getRole_id() + "\n");
-//			checkUser.setRole_id("2");//2 is faculty & 4 is Fac tpc
+			checkUser.setRole_id("2");//2 is faculty & 4 is Fac tpc
 			System.out.println("After update Faculty Role : " + checkUser.getRole_id() + "\n");
 			userDao.deleteUser(checkUser);
 		}
