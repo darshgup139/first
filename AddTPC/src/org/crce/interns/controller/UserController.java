@@ -76,13 +76,13 @@ public class UserController {
 			System.out.println("Binding Errors are present...");
 			return new ModelAndView("insertUser");
 		}
-
-		userService.insertUser(userBean);
+		int a;
+		a=userService.insertUser(userBean);
 		FacultyUserBean fuserBean= new FacultyUserBean();
 		fuserBean.setUsername(userBean.getUsername());
 	/*	System.out.println(userBean.getUserName()+" in Contoller");
 		System.out.println(userBean.getUserRole()+" in Contoller");*/
-		if(userBean.getRole_id().equalsIgnoreCase("2"))
+		if(userBean.getRole_id().equalsIgnoreCase("2")&& (a==1))
 		{
 			System.out.println("\n\n\n"+fuserBean.getUsername()+" in Contoller");
 			//userService.insertWork(fuserBean);

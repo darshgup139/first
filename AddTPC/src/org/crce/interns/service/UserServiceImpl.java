@@ -20,7 +20,7 @@ public class UserServiceImpl implements UserService {
 
 	/*Methods to Insert the data */
 	@Override
-	public void insertUser(UserBean userBean) {
+	public int insertUser(UserBean userBean) {
 		User user = new User();
 		User checkUser = new User();
 		RMUser rmuser= new RMUser();
@@ -57,8 +57,10 @@ public class UserServiceImpl implements UserService {
 				checkUser.setRole_id("3");
 				System.out.println("After update Student Role ID : " + checkUser.getRole_id() + "\n");
 				userDao.insertUser(checkUser);
+				return 1;
 			} else {
 				System.out.println("Invalid Input: Student" + "\n");
+				return 0;
 			}
 		}
 
@@ -69,11 +71,14 @@ public class UserServiceImpl implements UserService {
 				checkUser.setRole_id("4");
 				System.out.println("After update Faculty Role ID : " + checkUser.getRole_id() + "\n");
 				userDao.insertUser(checkUser);
+				return 1;
 			} else {
 				System.out.println("Invalid Input : Faculty" + "\n");
+				return 0;
 			}
 		} else {
 			System.out.println("Error : No Such User Exists");
+			return 0;
 		}
 
 	}
