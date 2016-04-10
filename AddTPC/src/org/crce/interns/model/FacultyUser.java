@@ -8,8 +8,8 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 @Entity
-//@Table(name = "role_function_schema.ftpc_special_role")
-@Table(name = "sample.ftpc_special_role")
+@Table(name = "role_function_schema.ftpc_special_role")
+//@Table(name = "sample.ftpc_special_role")
 public class FacultyUser implements Serializable {
 
 	@Id
