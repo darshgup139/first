@@ -38,7 +38,7 @@
 </head>
 <body>
 	<h2>Assign TPC</h2>
-	<form:form method="POST" action="/AddTPC/SubmitInsertUser">
+	<form:form method="POST" action="/AddTPC/SubmitInsertUser"> <%-- modelAttribute="userBean" --%>
 		<table>
 			<tr>
 				<td><form:label path="username">User name:</form:label></td>
@@ -52,6 +52,13 @@
 					Faculty-TPC</td>
 				<td><form:errors path="role_id" cssClass="error" /></td>
 			</tr>
+			
+		<%-- 	<tr>
+				<td><form:label path="task">Tasks</form:label></td>
+				<td><form:input path="task" /></td>
+			</tr>
+			 --%>
+			
 			<%-- <!-- <div id="login-error" class="control-group"> -->
 			<div class="Faculty box">
 				<form:input path="userName" /><br>

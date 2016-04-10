@@ -24,6 +24,21 @@ public class UserServiceImpl implements UserService {
 		User user = new User();
 		User checkUser = new User();
 		RMUser rmuser= new RMUser();
+		
+		
+		
+		
+		/*FacultyUserBean fuserBean = new FacultyUserBean();
+		FacultyUser fuser = new FacultyUser();
+		fuser.setUsername(userBean.getUsername());
+		BeanUtils.copyProperties(fuser,fuserBean);
+		System.out.println("Frm Hell"+fuserBean.getUsername());
+		
+		insertWork(fuserBean);*/
+		
+		
+		
+		
 		String st;
 		BeanUtils.copyProperties(userBean, user);
 		checkUser.setUsername(userBean.getUsername());

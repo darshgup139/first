@@ -17,6 +17,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -70,12 +71,13 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/SubmitInsertUser", method = RequestMethod.POST)
-	public ModelAndView createUser(@ModelAttribute("command") UserBean userBean, BindingResult bindingResult) {
+	public ModelAndView createUser(@ModelAttribute("userBean") UserBean userBean,/*@ModelAttribute("fuserBean")FacultyUserBean fuserBean,*/ BindingResult bindingResult) {
 		validator.validate(userBean, bindingResult);
 		if (bindingResult.hasErrors()) {
 			System.out.println("Binding Errors are present...");
 			return new ModelAndView("insertUser");
 		}
+		//System.out.println("Task Assigned is "+fuserBean.getUserWork());
 		int a;
 		a=userService.insertUser(userBean);
 		FacultyUserBean fuserBean= new FacultyUserBean();
