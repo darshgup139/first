@@ -8,8 +8,8 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 @Entity
-//@Table(name = "user_schema.userdetails")
-@Table(name = "sample.userdetails")
+@Table(name = "user_schema.userdetails")
+//@Table(name = "sample.userdetails")
 public class User implements Serializable {
 
 	@Id
